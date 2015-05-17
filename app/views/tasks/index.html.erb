@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 
 <h1>To Do </h1>
 
@@ -7,7 +6,7 @@
     <tr>
       <th>Content</th>
       <th>State</th>
-      <th colspan="3"></th>
+      <th colspan="4"></th>
  
     </tr>
   </thead>
@@ -20,6 +19,7 @@
         <td><%= link_to 'Show', task %></td>
         <td><%= link_to 'Edit', edit_task_path(task) %></td>
         <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to "Mask as Doing" , change_task_path(task,state: "doing"),method: :put %></td>
       </tr>
     <% end %>
   </tbody>
@@ -29,7 +29,6 @@
 
 <br>
 
-<p id="notice"><%= notice %></p>
 
 <h1>Doing</h1>
 
@@ -38,7 +37,7 @@
     <tr>
       <th>Content</th>
       <th>State</th>
-      <th colspan="3"></th>
+      <th colspan="5"></th>
  
     </tr>
   </thead>
@@ -51,12 +50,15 @@
         <td><%= link_to 'Show', task %></td>
         <td><%= link_to 'Edit', edit_task_path(task) %></td>
         <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to "Mask as To Do" , change_task_path(task,state: "to_do"),method: :put %></td>
+
+        <td><%= link_to "Mask as Done" , change_task_path(task,state: "done"),method: :put %></td>
+
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<p id="notice"><%= notice %></p>
 
 <h1>Done</h1>
 
@@ -65,7 +67,7 @@
     <tr>
       <th>Content</th>
       <th>State</th>
-      <th colspan="3"></th>
+      <th colspan="4"></th>
  
     </tr>
   </thead>
@@ -78,10 +80,12 @@
         <td><%= link_to 'Show', task %></td>
         <td><%= link_to 'Edit', edit_task_path(task) %></td>
         <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to "Mask as Doing" , change_task_path(task,state: "doing"),method: :put %></td>
+
       </tr>
     <% end %>
   </tbody>
 </table>
 
-
+</br>
 <%= link_to 'New Task', new_task_path %>
